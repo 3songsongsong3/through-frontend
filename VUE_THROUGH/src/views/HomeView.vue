@@ -7,6 +7,12 @@
       <p class="tagline">
         See the world through others' eyes
       </p>
+      <p class="tagline">
+        ひとつのテーマ、無数のまなざし
+      </p>
+      <p class="tagline">
+        하나의 주제, 각자의 시선.
+      </p>
     </section>
 
     <section class="theme-list">
