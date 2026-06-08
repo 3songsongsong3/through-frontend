@@ -72,6 +72,8 @@ const themes = [
 }
 
 .hero {
+  width: 95%;
+  margin: 0 auto;
   padding: 120px 80px 80px;
 }
 
@@ -87,10 +89,14 @@ const themes = [
 }
 
 .theme-list {
+  width: 95%;
+  margin: 0 auto;
+
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  padding: 0 80px 80px;
+  gap: 40px;
+
+  padding-bottom: 80px;
 }
 
 .theme-card {
