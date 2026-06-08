@@ -1,41 +1,43 @@
 <template>
-  <div class="home">
+  <div class="container">
 
-    <section class="hero">
-      <h1>Through</h1>
+    <!-- Hero -->
+    <section class="slide hero">
+      <div class="hero-content">
+        <h1>Through</h1>
 
-      <p class="tagline">
-        See the world through others' eyes
-      </p>
-      <p class="tagline">
-        ひとつのテーマ、無数のまなざし
-      </p>
-      <p class="tagline">
-        하나의 주제, 각자의 시선.
-      </p>
+        <p class="eng">
+          See the world through others' eyes
+        </p>
+
+        <p class="jp">
+          ひとつのテーマ、無数のまなざし。
+        </p>
+
+        <p class="kr">
+          하나의 주제, 각자의 시선.
+        </p>
+
+        <div class="scroll-guide">
+          ↓ Discover perspectives
+        </div>
+      </div>
     </section>
 
-    <section class="theme-list">
-
-      <div
-        v-for="theme in themes"
-        :key="theme.id"
-        class="theme-card"
-      >
-        <img
-          :src="theme.image"
-          :alt="theme.title"
-        >
+    <!-- Theme Slides -->
+    <section
+      v-for="theme in themes"
+      :key="theme.id"
+      class="slide"
+    >
+      <div class="theme-card">
+        <img :src="theme.image" :alt="theme.title" />
 
         <div class="overlay">
           <h2>{{ theme.title }}</h2>
-
-          <p>
-            {{ theme.count }} Contributions
-          </p>
+          <p>{{ theme.count }} Contributions</p>
         </div>
       </div>
-
     </section>
 
   </div>
@@ -47,98 +49,146 @@ const themes = [
     id: 1,
     title: 'RAINY DAY',
     count: 23,
-    image: 'https://picsum.photos/1200/700?random=1'
+    image: 'https://picsum.photos/id/1015/1200/800'
   },
   {
     id: 2,
     title: 'COMMUTE',
     count: 41,
-    image: 'https://picsum.photos/1200/700?random=2'
+    image: 'https://picsum.photos/id/1011/1200/800'
   },
   {
     id: 3,
-    title: 'RED',
-    count: 18,
-    image: 'https://picsum.photos/1200/700?random=3'
+    title: 'NIGHT WALK',
+    count: 15,
+    image: 'https://picsum.photos/id/1043/1200/800'
   }
 ]
 </script>
 
 <style scoped>
-.home {
-  min-height: 100vh;
-  background: #0f0f0f;
-  color: white;
+
+.container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
 }
 
-.hero {
-  width: 95%;
-  margin: 0 auto;
-  padding: 120px 80px 80px;
-}
-
-.hero h1 {
-  font-size: 72px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
-.tagline {
-  color: #9b9b9b;
-  font-size: 18px;
-}
-
-.theme-list {
-  width: 95%;
-  margin: 0 auto;
+.slide {
+  height: 100vh;
 
   display: flex;
-  flex-direction: column;
-  gap: 40px;
+  justify-content: center;
+  align-items: center;
 
-  padding-bottom: 80px;
+  scroll-snap-align: start;
 }
+
+/* Hero */
+
+.hero {
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 96px;
+  margin-bottom: 20px;
+  letter-spacing: -2px;
+}
+
+.eng {
+  font-size: 24px;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.jp {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.kr {
+  font-size: 18px;
+  opacity: 0.7;
+}
+
+.scroll-guide {
+  margin-top: 80px;
+  opacity: 0.4;
+  font-size: 14px;
+}
+
+/* Theme */
 
 .theme-card {
   position: relative;
+
+  width: 95%;
+  height: 85vh;
+
   overflow: hidden;
-  border-radius: 24px;
-  cursor: pointer;
+  border-radius: 20px;
 }
 
 .theme-card img {
   width: 100%;
-  height: 500px;
+  height: 100%;
+
   object-fit: cover;
-
-  transition: 0.4s;
-}
-
-.theme-card:hover img {
-  transform: scale(1.05);
 }
 
 .overlay {
   position: absolute;
 
-  left: 0;
-  right: 0;
-  bottom: 0;
+  left: 40px;
+  bottom: 40px;
 
-  padding: 40px;
-
-  background: linear-gradient(
-    transparent,
-    rgba(0,0,0,0.8)
-  );
+  color: white;
 }
 
 .overlay h2 {
-  font-size: 42px;
-  margin-bottom: 8px;
+  margin: 0;
+  font-size: 48px;
 }
 
 .overlay p {
-  color: #d0d0d0;
+  margin-top: 10px;
+  opacity: 0.8;
 }
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+  .hero-content h1 {
+    font-size: 64px;
+  }
+
+  .eng {
+    font-size: 18px;
+  }
+
+  .jp {
+    font-size: 16px;
+  }
+
+  .kr {
+    font-size: 14px;
+  }
+
+  .theme-card {
+    width: 96%;
+    height: 90vh;
+  }
+
+  .overlay {
+    left: 20px;
+    bottom: 20px;
+  }
+
+  .overlay h2 {
+    font-size: 32px;
+  }
+}
+
 </style>
