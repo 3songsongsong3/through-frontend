@@ -30,14 +30,19 @@
       :key="theme.id"
       class="slide"
     >
-      <div class="theme-card">
-        <img :src="theme.image" :alt="theme.title" />
+        <router-link
+        :to="`/theme/${theme.id}`"
+        class="theme-card"
+        >
+            <div class="theme-card">
+                <img :src="theme.image" :alt="theme.title" />
 
-        <div class="overlay">
-          <h2>{{ theme.title }}</h2>
-          <p>{{ theme.count }} Contributions</p>
-        </div>
-      </div>
+                <div class="overlay">
+                <h2>{{ theme.title }}</h2>
+                <p>{{ theme.count }} Contributions</p>
+                </div>
+            </div>
+        </router-link>
     </section>
 
   </div>
